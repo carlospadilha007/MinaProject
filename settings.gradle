@@ -1,0 +1,2 @@
+rootProject.name='MinaProject'
+include ':app'
