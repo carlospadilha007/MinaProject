@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Mina</string>
-    <string name="btn_entra">Entrar</string>
+    <string name="btn_entrar">Entrar</string>
     <string name="btn_criar_conta">Criar Conta</string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="esqueci_a_senha">Esqueci minha senha</string>
+
 </resources>
