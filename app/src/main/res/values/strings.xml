@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">MinaProject</string>
+    <string name="app_name">Mina</string>
+    <string name="btn_entra">Entrar</string>
+    <string name="btn_criar_conta">Criar Conta</string>
 </resources>
