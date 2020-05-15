@@ -28,7 +28,7 @@
         app:layout_constraintGuide_percent="0.05" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnVoltarParaTelaLogin"
         android:layout_width="41dp"
         android:layout_height="41dp"
         android:layout_marginStart="20dp"
@@ -155,14 +155,14 @@
         android:hint="@string/senha"
         android:inputType="textPassword"
         android:textColorHint="@android:color/background_dark"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/btnContinuar"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnContinuar"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@drawable/btn_arredondado_azul"
