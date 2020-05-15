@@ -39,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
+        android:onClick="entrarNaConta"
         android:text="@string/btn_entrar"
         android:textAllCaps="false"
         android:textColor="#000000"
@@ -48,7 +49,7 @@
 
     <TextView
         android:id="@+id/txtAppName"
-        android:layout_width="259dp"
+        android:layout_width="wrap_content"
         android:layout_height="158dp"
         android:text="@string/app_name"
         android:textColor="#FFFFFF"
@@ -63,10 +64,11 @@
 
     <Button
         android:id="@+id/btnCriarConta"
-        android:layout_width="375dp"
+        android:layout_width="0dp"
         android:layout_height="65dp"
         android:layout_marginTop="244dp"
         android:background="@drawable/btn_arredondado_rosa"
+        android:onClick="criarConta"
         android:text="@string/btn_criar_conta"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

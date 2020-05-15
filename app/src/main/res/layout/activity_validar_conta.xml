@@ -25,6 +25,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:background="@drawable/ic_arrow_back_black_15dp"
+        android:onClick="voltarParaCriacaoDeConta"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
@@ -96,6 +97,7 @@
         android:layout_height="75dp"
         android:layout_marginTop="248dp"
         android:background="@drawable/btn_arredondado_azul"
+        android:onClick="verificarCodigo"
         android:text="Verificar e avançar"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
