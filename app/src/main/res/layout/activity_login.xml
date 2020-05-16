@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textColor="#FFFFFF"
-        android:textSize="110sp"
+        android:textSize="100sp"
         app:fontFamily="@font/pacifico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -92,7 +92,7 @@
     <Button
         android:id="@+id/btnEntrarNaConta"
         android:layout_width="0dp"
-        android:layout_height="75dp"
+        android:layout_height="60dp"
         android:background="@drawable/btn_arredondado_azul"
         android:onClick="entrarNaConta"
         android:text="@string/btn_entrar"
@@ -103,7 +103,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/btnEsqueceuSenha"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.36" />
 
     <TextView
         android:id="@+id/txtSemConta"
