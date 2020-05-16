@@ -8,8 +8,9 @@
     <TextView
         android:id="@+id/txtNomeTela"
         android:layout_width="wrap_content"
-        android:layout_height="16dp"
+        android:layout_height="wrap_content"
         android:text="Confirmação da conta"
+        android:textAlignment="gravity"
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -20,11 +21,12 @@
 
     <Button
         android:id="@+id/btnVoltarParaTelaLogin2"
-        android:layout_width="41dp"
-        android:layout_height="41dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:background="@drawable/ic_arrow_back_black_15dp"
+        android:onClick="voltarParaCriacaoDeConta"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
@@ -58,6 +60,7 @@
         android:text="Estamos verificando os seus dados. Assim \n que finazado, você receberá um código de verficação."
         android:textColor="#000000"
         android:textSize="17sp"
+        android:gravity="center_vertical"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
@@ -93,15 +96,17 @@
     <Button
         android:id="@+id/btnVerificarConta"
         android:layout_width="0dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="248dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="180dp"
         android:background="@drawable/btn_arredondado_azul"
         android:text="Verificar e avançar"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/edtCodigoVericacao" />
+        app:layout_constraintTop_toBottomOf="@+id/edtCodigoVericacao"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
