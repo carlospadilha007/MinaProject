@@ -1,0 +1,16 @@
+[33mca17f87[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m adicionando sdk do firebase
+[33m36132a9[m mudando nome dos pacotes
+[33mb3be393[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mpreferences[m[33m)[m SharedPreferences criado e funcionando em qualquer activity, falta conferir campos
+[33mdbc8bd4[m Merge branch 'carlos'
+[33me02debc[m correção de proproções das telas no emulador
+[33mf6eaaad[m adição de transição entre as telas de criação de conta e login
+[33m65b1dc3[m Mudança das cores do app
+[33m79c865a[m Main arrumado
+[33m8d39e59[m Merge branch 'master' of github.com:carlospadilha007/MinaProject
+[33m00a840f[m tela de validação de conta terminada
+[33m3fe0576[m tela de criação de conta finalizada
+[33m50ac464[m tela de login finalizada
+[33m463c0a4[m primeira tela finalisada
+[33m4453502[m Criação das telas: primeira, login e criação de conta
+[33m410a681[m commit testando branch
+[33mcdaf9bf[m projeto vazio
