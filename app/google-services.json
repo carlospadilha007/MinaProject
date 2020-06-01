@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "529124627626",
+    "firebase_url": "https://projeto-mina.firebaseio.com",
+    "project_id": "projeto-mina",
+    "storage_bucket": "projeto-mina.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529124627626:android:ddbc2a4cc6174af3eb6cd3",
+        "android_client_info": {
+          "package_name": "com.mina.minaproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529124627626-lb3acc7ar5aah3v2fertnc0jj470o37i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mina.minaproject",
+            "certificate_hash": "7e4975c7a289d4912cedc6f72ce66f8e066d0ca3"
+          }
+        },
+        {
+          "client_id": "529124627626-j9289v9759s3453g6vqkpjhfa7rob9mk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm1YCAc_QqJw02nj9cPOUcm4PoF5FPW3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529124627626-j9289v9759s3453g6vqkpjhfa7rob9mk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

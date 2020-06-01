@@ -9,17 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".ValidarContaActivity"></activity>
-        <activity android:name=".CriarContaActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".FirstScreenActivity">
+        <activity android:name="com.mina.minaproject.ValidarContaActivity"></activity>
+        <activity android:name="com.mina.minaproject.CriarContaActivity" />
+        <activity android:name="com.mina.minaproject.LoginActivity" />
+        <activity android:name="com.mina.minaproject.FirstScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.mina.minaproject.MainActivity" />
     </application>
 
 </manifest>
