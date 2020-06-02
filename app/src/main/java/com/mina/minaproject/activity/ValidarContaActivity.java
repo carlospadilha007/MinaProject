@@ -1,9 +1,11 @@
-package com.mina.minaproject;
+package com.mina.minaproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+
+import com.mina.minaproject.R;
 
 public class ValidarContaActivity extends AppCompatActivity {
 

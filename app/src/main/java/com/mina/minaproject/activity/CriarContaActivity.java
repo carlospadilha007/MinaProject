@@ -1,4 +1,4 @@
-package com.mina.minaproject;
+package com.mina.minaproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.mina.minaproject.R;
 
 public class CriarContaActivity extends AppCompatActivity {
     public SharedPreferences preferences;
