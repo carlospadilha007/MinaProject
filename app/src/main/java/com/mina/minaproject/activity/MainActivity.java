@@ -1,4 +1,4 @@
-package com.mina.minaproject;
+package com.mina.minaproject.activity;
 
     import androidx.annotation.NonNull;
     import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,7 @@ package com.mina.minaproject;
     import com.google.android.gms.tasks.OnSuccessListener;
     import com.google.firebase.firestore.DocumentReference;
     import com.google.firebase.firestore.FirebaseFirestore;
+    import com.mina.minaproject.R;
 
 
     import java.util.HashMap;
