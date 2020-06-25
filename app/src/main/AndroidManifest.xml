@@ -22,4 +22,6 @@
         <activity android:name="com.mina.minaproject.MainActivity" />
     </application>
 
+
+
 </manifest>
