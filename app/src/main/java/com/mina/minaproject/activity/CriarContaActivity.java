@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.mina.minaproject.R;
+import com.mina.minaproject.helper.AutenticacaoEmail;
 
 public class CriarContaActivity extends AppCompatActivity {
     public SharedPreferences preferences;
@@ -52,6 +53,8 @@ public class CriarContaActivity extends AppCompatActivity {
         this.salvaPreferencias();
 
         if(this.confereCamposVazios()){
+            AutenticacaoEmail mAuth = new AutenticacaoEmail(editEmail, editSenha);
+            mAuth.registrarUsuario();
             startActivity(new Intent(getApplicationContext(), ValidarContaActivity.class));
         }
 
