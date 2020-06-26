@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Usuaria {
+    private String id;
     private String nome;
     private String sobrenome;
     private String cpf;
-    private Date dataNascimento;
-    private String  telefone;
+    private String dataNascimento;
+    private String telefone;
     private String cidade;
     private String email;
     private String senha;
@@ -18,7 +19,7 @@ public class Usuaria {
 
     }
 
-    public Usuaria(String nome, String sobrenome, String cpf, Date dataNascimento,
+    public Usuaria(String nome, String sobrenome, String cpf, String dataNascimento,
                    String telefone, String cidade, String email, String senha) {
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -30,7 +31,7 @@ public class Usuaria {
         this.senha = senha;
     }
 
-    public Usuaria(String nome, String sobrenome, String cpf, Date dataNascimento,
+    public Usuaria(String nome, String sobrenome, String cpf, String dataNascimento,
                    String telefone, String cidade, String email, String senha,
                    ArrayList<PessoaDeConfianca> pessoaDeConfianca) {
         this.nome = nome;
@@ -68,11 +69,11 @@ public class Usuaria {
         this.cpf = cpf;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -106,6 +107,14 @@ public class Usuaria {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public ArrayList<PessoaDeConfianca> getPessoasDeConfianca() {

@@ -1,16 +1,24 @@
 package com.mina.minaproject.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.mina.minaproject.R;
+import com.mina.minaproject.helper.ConfiguracaoFirebase;
+import com.mina.minaproject.models.Usuaria;
 
 public class CriarContaActivity extends AppCompatActivity {
     public SharedPreferences preferences;
@@ -28,20 +36,17 @@ public class CriarContaActivity extends AppCompatActivity {
 
     private String[] nomes={"Nome","Sobrenome", "CPF", "DataDeNascimento","Telefone","Cidade","Email","Senha"};
 
+    private Usuaria usuaria;
+    private FirebaseAuth autenticacao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criar_conta);
 
-        editNome=findViewById(R.id.edtNome);
-        editSobrenome=findViewById(R.id.edtSobrenome);
-        editCpf=findViewById(R.id.edtCpf);
-        editDataNascimento=findViewById(R.id.edtDataNascimento);
-        editTelefone=findViewById(R.id.edtTelefone);
-        editCidade=findViewById(R.id.edtCidade);
-        editEmail=findViewById(R.id.edtEmail);
-        editSenha=findViewById(R.id.edtSenha);
-        btnContinuar=findViewById(R.id.btnContinuar);
+        this.iniciaComponentes();
+
+
     }
 
     public void voltarParaLogin(View view){
@@ -49,11 +54,12 @@ public class CriarContaActivity extends AppCompatActivity {
     }
 
     public void continuarCriacaoDeConta(View view){
-        this.salvaPreferencias();
+       // this.salvaPreferencias();
+        this.cadastra();
 
-        if(this.confereCamposVazios()){
-            startActivity(new Intent(getApplicationContext(), ValidarContaActivity.class));
-        }
+        //if(this.confereCamposVazios()){
+          //  startActivity(new Intent(getApplicationContext(), ValidarContaActivity.class));
+       // }
 
 
     }
@@ -91,6 +97,78 @@ public class CriarContaActivity extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    public void cadastra(){
+
+        String nome=editNome.getText().toString();
+        String sobrenome=editSobrenome.getText().toString();
+        String cpf=editCpf.getText().toString();
+        String dataDeNascimento=editDataNascimento.getText().toString();
+        String telefone=editTelefone.getText().toString();
+        String cidade= editCidade.getText().toString();
+        String email=editEmail.getText().toString();
+        String senha= editSenha.getText().toString();
+
+        if(this.confereCamposVazios()){
+            usuaria=new Usuaria();
+            usuaria.setNome(nome);
+            usuaria.setSobrenome(sobrenome);
+            usuaria.setCpf(cpf);
+            usuaria.setDataNascimento(dataDeNascimento);
+            usuaria.setTelefone(telefone);
+            usuaria.setCidade(cidade);
+            usuaria.setEmail(email);
+            usuaria.setSenha(senha);
+
+            //aqui pegar o id do usuario pelo autenticador
+            autenticacao= ConfiguracaoFirebase.getAutenticador();
+            autenticacao.createUserWithEmailAndPassword(
+                    usuaria.getEmail(),
+                    usuaria.getSenha()
+            ).addOnCompleteListener(
+                    this,
+                    new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+
+                                try {
+                                    String id = task.getResult().getUser().getUid();//pega o id do usuario
+                                    usuaria.setId(id);
+
+                                    Log.d("abc", "createUserWithEmail:success");
+
+                                }catch (Exception e){
+                                    e.printStackTrace();
+                                }
+
+                            }else{
+                                Log.w("abc", "createUserWithEmail:failure", task.getException());
+                                Toast.makeText(getApplicationContext(), "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                    }
+            );
+            //aqui pegar o id, salvar no firestore
+        }
+
+    }
+
+    public void iniciaComponentes(){
+        editNome=findViewById(R.id.edtNome);
+        editSobrenome=findViewById(R.id.edtSobrenome);
+        editCpf=findViewById(R.id.edtCpf);
+        editDataNascimento=findViewById(R.id.edtDataNascimento);
+        editTelefone=findViewById(R.id.edtTelefone);
+        editCidade=findViewById(R.id.edtCidade);
+        editEmail=findViewById(R.id.edtEmail);
+        editSenha=findViewById(R.id.edtSenha);
+        btnContinuar=findViewById(R.id.btnContinuar);
+
+        editNome.requestFocus();
     }
 
 }
