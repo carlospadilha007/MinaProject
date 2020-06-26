@@ -79,14 +79,6 @@ public class CriarContaActivity extends AppCompatActivity {
         editor.putString("Senha", editSenha.getText().toString());
         editor.commit();//salva no Preferences
 
-        //testando
-        /*try{
-            for(int i=0;i<8;i++){
-                Log.i("LALA", preferences.getString(nomes[i], "Erro"));
-            }
-        }catch(Exception e){
-            Log.i("LALA","Erro");
-        }*/
     }
 
 
@@ -127,25 +119,26 @@ public class CriarContaActivity extends AppCompatActivity {
                     usuaria.getEmail(),
                     usuaria.getSenha()
             ).addOnCompleteListener(
-                    this,
+                    CriarContaActivity.this,
                     new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
 
+                            if(task.isSuccessful()){
                                 try {
                                     String id = task.getResult().getUser().getUid();//pega o id do usuario
                                     usuaria.setId(id);
 
-                                    Log.d("abc", "createUserWithEmail:success");
+                                    Toast.makeText(getApplicationContext(), "Cadastro concluido.",
+                                            Toast.LENGTH_SHORT).show();
 
                                 }catch (Exception e){
                                     e.printStackTrace();
                                 }
 
                             }else{
-                                Log.w("abc", "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(getApplicationContext(), "Authentication failed.",
+                                Log.i("abc", "createUserWithEmail:failure", task.getException());
+                                Toast.makeText(getApplicationContext(), "A senha precisa de no mínimo 6 caracteres.",
                                         Toast.LENGTH_SHORT).show();
                             }
                         }
