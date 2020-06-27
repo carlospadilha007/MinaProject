@@ -21,9 +21,14 @@ public class Usuaria {
 
     }
 
-    public void salvarFirestore(){
-
+    public Usuaria(String email, String senha) {
+        this.email = email;
+        this.senha = senha;
     }
+
+
+
+
 
     public String getNome() {
         return nome;

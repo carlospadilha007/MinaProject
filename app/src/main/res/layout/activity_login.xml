@@ -76,7 +76,7 @@
         app:layout_constraintGuide_percent="0.94" />
 
     <Button
-        android:id="@+id/btnEsqueceuSenha"
+        android:id="@+id/btnEsqueciSenha"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:background="#00FFFFFF"
@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edtSenha" />
 
     <Button
-        android:id="@+id/btnEntrarNaConta"
+        android:id="@+id/btnEntrar"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:background="@drawable/btn_arredondado_azul"
@@ -102,7 +102,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/btnEsqueceuSenha"
+        app:layout_constraintTop_toBottomOf="@+id/btnEsqueciSenha"
         app:layout_constraintVertical_bias="0.36" />
 
     <TextView
@@ -115,7 +115,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/btnEntrarNaConta" />
+        app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
 
     <Button
         android:id="@+id/btnCriarConta"

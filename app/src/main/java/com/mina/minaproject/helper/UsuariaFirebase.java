@@ -7,15 +7,14 @@ import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mina.minaproject.models.Usuaria;
 
 public class UsuariaFirebase {
 
-    public UsuariaFirebase() {
-    }
-
-    public void cadastraFirestore(Usuaria usuaria, String id){
+    public static void cadastraFirestore(Usuaria usuaria, String id){
         FirebaseFirestore firestore= ConfiguracaoFirebase.getFirestore();
 
         firestore.collection("users").document(id)
@@ -35,4 +34,5 @@ public class UsuariaFirebase {
         });
 
     }
+
 }

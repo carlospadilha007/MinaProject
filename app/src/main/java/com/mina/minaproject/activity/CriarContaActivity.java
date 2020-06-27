@@ -39,7 +39,6 @@ public class CriarContaActivity extends AppCompatActivity {
 
     private Usuaria usuaria;
     private FirebaseAuth autenticacao;
-    private UsuariaFirebase usuariaFirebase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +58,7 @@ public class CriarContaActivity extends AppCompatActivity {
         this.salvaPreferencias();
         this.cadastra();
 
-
-
-
+        finish();
     }
 
     public void salvaPreferencias(){
@@ -120,7 +117,7 @@ public class CriarContaActivity extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 try {
                                     String id = task.getResult().getUser().getUid();//pega o id do usuario
-                                    usuariaFirebase.cadastraFirestore(usuaria, id);//cadastra no banco
+                                    UsuariaFirebase.cadastraFirestore(usuaria, id);//cadastra no banco
 
                                     Toast.makeText(getApplicationContext(), "Cadastro concluido.",
                                             Toast.LENGTH_SHORT).show();
@@ -186,7 +183,6 @@ public class CriarContaActivity extends AppCompatActivity {
         editSenha=findViewById(R.id.edtSenha);
         btnContinuar=findViewById(R.id.btnContinuar);
 
-        usuariaFirebase=new UsuariaFirebase();
 
         editNome.requestFocus();
     }
