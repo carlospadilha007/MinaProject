@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Usuaria {
-    private String id;
     private String nome;
     private String sobrenome;
     private String cpf;
@@ -15,34 +14,15 @@ public class Usuaria {
     private String senha;
     private ArrayList<PessoaDeConfianca> pessoasDeConfianca = new ArrayList();
 
+    private double latitude;
+    private double longitude;
+
     public Usuaria() {
 
     }
 
-    public Usuaria(String nome, String sobrenome, String cpf, String dataNascimento,
-                   String telefone, String cidade, String email, String senha) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.cpf = cpf;
-        this.dataNascimento = dataNascimento;
-        this.telefone = telefone;
-        this.cidade = cidade;
-        this.email = email;
-        this.senha = senha;
-    }
+    public void salvarFirestore(){
 
-    public Usuaria(String nome, String sobrenome, String cpf, String dataNascimento,
-                   String telefone, String cidade, String email, String senha,
-                   ArrayList<PessoaDeConfianca> pessoaDeConfianca) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.cpf = cpf;
-        this.dataNascimento = dataNascimento;
-        this.telefone = telefone;
-        this.cidade = cidade;
-        this.email = email;
-        this.senha = senha;
-        this.pessoasDeConfianca = pessoaDeConfianca;
     }
 
     public String getNome() {
@@ -109,12 +89,20 @@ public class Usuaria {
         this.senha = senha;
     }
 
-    public String getId() {
-        return id;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     public ArrayList<PessoaDeConfianca> getPessoasDeConfianca() {

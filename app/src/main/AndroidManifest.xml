@@ -9,19 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name="com.mina.minaproject.activity.ValidarContaActivity"></activity>
-        <activity android:name="com.mina.minaproject.activity.CriarContaActivity" />
-        <activity android:name="com.mina.minaproject.activity.LoginActivity" />
-        <activity android:name="com.mina.minaproject.activity.FirstScreenActivity">
+        <activity android:name=".activity.TelaAposLoginActivity"></activity>
+        <activity android:name=".activity.ValidarContaActivity" />
+        <activity android:name=".activity.CriarContaActivity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.FirstScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.mina.minaproject.activity.MainActivity" />
+        <activity android:name=".activity.MainActivity" />
     </application>
-
-
 
 </manifest>

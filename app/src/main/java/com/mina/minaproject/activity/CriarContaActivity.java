@@ -18,6 +18,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.mina.minaproject.R;
 import com.mina.minaproject.helper.ConfiguracaoFirebase;
+import com.mina.minaproject.helper.UsuariaFirebase;
 import com.mina.minaproject.models.Usuaria;
 
 public class CriarContaActivity extends AppCompatActivity {
@@ -38,6 +39,7 @@ public class CriarContaActivity extends AppCompatActivity {
 
     private Usuaria usuaria;
     private FirebaseAuth autenticacao;
+    private UsuariaFirebase usuariaFirebase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +56,10 @@ public class CriarContaActivity extends AppCompatActivity {
     }
 
     public void continuarCriacaoDeConta(View view){
-       // this.salvaPreferencias();
+        this.salvaPreferencias();
         this.cadastra();
 
-        //if(this.confereCamposVazios()){
-          //  startActivity(new Intent(getApplicationContext(), ValidarContaActivity.class));
-       // }
+
 
 
     }
@@ -82,14 +82,7 @@ public class CriarContaActivity extends AppCompatActivity {
     }
 
 
-    public boolean confereCamposVazios(){
 
-        if(editNome.getText().toString().equals("")){
-            Toast.makeText(this, "Por favor preecha todos os campos.", Toast.LENGTH_LONG).show();
-            return false;
-        }
-        return true;
-    }
 
     public void cadastra(){
 
@@ -113,7 +106,7 @@ public class CriarContaActivity extends AppCompatActivity {
             usuaria.setEmail(email);
             usuaria.setSenha(senha);
 
-            //aqui pegar o id do usuario pelo autenticador
+
             autenticacao= ConfiguracaoFirebase.getAutenticador();
             autenticacao.createUserWithEmailAndPassword(
                     usuaria.getEmail(),
@@ -127,11 +120,15 @@ public class CriarContaActivity extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 try {
                                     String id = task.getResult().getUser().getUid();//pega o id do usuario
-                                    usuaria.setId(id);
+                                    usuariaFirebase.cadastraFirestore(usuaria, id);//cadastra no banco
 
                                     Toast.makeText(getApplicationContext(), "Cadastro concluido.",
                                             Toast.LENGTH_SHORT).show();
 
+
+                                    if(confereCamposVazios()){
+                                        startActivity(new Intent(getApplicationContext(), ValidarContaActivity.class));
+                                    }
                                 }catch (Exception e){
                                     e.printStackTrace();
                                 }
@@ -150,6 +147,34 @@ public class CriarContaActivity extends AppCompatActivity {
 
     }
 
+    public boolean confereCamposVazios(){
+        String nomeCampo="";
+
+        if( !editNome.getText().toString().isEmpty() ){
+            if( !editSobrenome.getText().toString().isEmpty()){
+                if(!editCpf.getText().toString().isEmpty()){
+                    if(!editDataNascimento.getText().toString().isEmpty()){
+                        if(!editTelefone.getText().toString().isEmpty()){
+                            if(!editCidade.getText().toString().isEmpty()){
+                                if(!editEmail.getText().toString().isEmpty()){
+                                    if(!editSenha.getText().toString().isEmpty()){
+
+                                        return true;
+
+                                    }else nomeCampo="Senha";
+                                }else nomeCampo="E-mail";
+                            }else nomeCampo= "Cidade";
+                        }else nomeCampo= "Telefone";
+                    }else nomeCampo= "Data de Nascimento";
+                }else nomeCampo = "CPF";
+            }else nomeCampo= "Sobrenome";
+        }else nomeCampo="Nome";
+
+
+        Toast.makeText(this, "Por favor preecha o campo:"+ nomeCampo, Toast.LENGTH_LONG).show();
+        return false;
+    }
+
     public void iniciaComponentes(){
         editNome=findViewById(R.id.edtNome);
         editSobrenome=findViewById(R.id.edtSobrenome);
@@ -160,6 +185,8 @@ public class CriarContaActivity extends AppCompatActivity {
         editEmail=findViewById(R.id.edtEmail);
         editSenha=findViewById(R.id.edtSenha);
         btnContinuar=findViewById(R.id.btnContinuar);
+
+        usuariaFirebase=new UsuariaFirebase();
 
         editNome.requestFocus();
     }

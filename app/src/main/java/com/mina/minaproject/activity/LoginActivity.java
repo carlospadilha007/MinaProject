@@ -22,6 +22,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public void entrarNaConta(View view){ // fara a validação do login
 
+
+
     }
 
     public void criarConta(View view){// transfere para a criação de conta
