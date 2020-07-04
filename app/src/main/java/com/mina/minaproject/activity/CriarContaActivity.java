@@ -13,9 +13,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.mina.minaproject.R;
 import com.mina.minaproject.helper.ConfiguracaoFirebase;
 import com.mina.minaproject.helper.UsuariaFirebase;
@@ -117,7 +121,23 @@ public class CriarContaActivity extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 try {
                                     String id = task.getResult().getUser().getUid();//pega o id do usuario
-                                    UsuariaFirebase.cadastraFirestore(usuaria, id);//cadastra no banco
+                                    //UsuariaFirebase.cadastraFirestore(usuaria, id);//cadastra no banco
+
+                                    FirebaseFirestore firestore= ConfiguracaoFirebase.getFirestore();
+
+                                    firestore.collection("users")
+                                            .add(usuaria).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                        @Override
+                                        public void onSuccess(DocumentReference documentReference) {
+                                            Log.i("success", "DocumentSnapshot added with ID: " + documentReference.getId());
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Log.i("error", "Error adding document", e);
+                                        }
+                                    });
+
 
                                     Toast.makeText(getApplicationContext(), "Cadastro concluido.",
                                             Toast.LENGTH_SHORT).show();
