@@ -62,7 +62,7 @@ public class CriarContaActivity extends AppCompatActivity {
         this.salvaPreferencias();
         this.cadastra();
 
-        finish();
+        //finish();
     }
 
     public void salvaPreferencias(){
@@ -113,7 +113,7 @@ public class CriarContaActivity extends AppCompatActivity {
                     usuaria.getEmail(),
                     usuaria.getSenha()
             ).addOnCompleteListener(
-                    CriarContaActivity.this,
+                    this,
                     new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -150,9 +150,9 @@ public class CriarContaActivity extends AppCompatActivity {
                                     e.printStackTrace();
                                 }
 
-                            }else{
+                            } else {
                                 Log.i("abc", "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(getApplicationContext(), "A senha precisa de no mínimo 6 caracteres.",
+                                Toast.makeText(getApplicationContext(), "Erro no cadastro.",
                                         Toast.LENGTH_SHORT).show();
                             }
                         }

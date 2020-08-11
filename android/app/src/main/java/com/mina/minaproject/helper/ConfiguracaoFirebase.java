@@ -17,7 +17,10 @@ public class ConfiguracaoFirebase {
     }
 
     public static FirebaseAuth getAutenticador() {
+        if(autenticador == null){
+            autenticador=FirebaseAuth.getInstance();
+        }
 
-        return autenticador.getInstance();
+        return autenticador;
     }
 }
