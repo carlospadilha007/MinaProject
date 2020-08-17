@@ -1,4 +1,25 @@
 const db = require('../database/connection');
+const { insideCircle } = require('geolocation-utils');
+
+const RADIUS = 900 //qtd de metros de raio
+
+function usersInCircle(user ,users){
+  const {latitude, longitude, id} = user[0]
+  const center = {lat: Number(latitude), lon: Number(longitude)};
+
+  const filteredUsers = users.filter((us)=>{
+    const {latitude, longitude} = us;
+
+    if(us.id === id){
+      return false
+    }
+
+    return insideCircle({lat: Number(latitude), lon: Number(longitude)}, center, RADIUS)
+  })
+
+  return filteredUsers
+
+}
 
 module.exports = class LocationController{
   
@@ -13,7 +34,9 @@ module.exports = class LocationController{
       if(user.length == 1){
 
         const users = await db('user_locations').select('*');
-        res.json({users});
+        const closeUsers = usersInCircle(user, users)
+
+        res.status(200).json(closeUsers)
 
       } else {
         await trx('user_locations').insert({
@@ -28,11 +51,8 @@ module.exports = class LocationController{
       }
 
     } catch (error) {
-      res.status(500).send('Error'+error)
+      res.status(500).send('Error '+ error)
     }
-    
-
-    
   }
 
   async deleteLocation(req, res){
