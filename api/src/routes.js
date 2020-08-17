@@ -6,5 +6,7 @@ const locationController = new LocationController();
 
 
 routes.post('/locations', locationController.listLocations)
+routes.delete('/locations/:id', locationController.deleteLocation)
+
 
 module.exports=routes;
