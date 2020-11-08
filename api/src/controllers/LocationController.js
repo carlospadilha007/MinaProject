@@ -47,7 +47,7 @@ module.exports = class LocationController{
     
         const users = await trx('user_locations').select('*');
         await trx.commit();
-        res.json({users});
+        res.json(users);
       }
 
     } catch (error) {
